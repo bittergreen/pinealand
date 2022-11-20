@@ -2,3 +2,4 @@
 
 # dependencies with fixed version
 Pillow >= 7.0
+numpy >= 1.5.0
