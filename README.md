@@ -18,4 +18,12 @@ Pinealand这个名字取自笛卡尔对"Pineal Gland"松果体的错误理解，
 
 在这个背景下，我觉得Pinealand项目可以开始做了。
 
-完全是个外行的兴趣使然，个人学习用，也欢迎有缘人提MR一起建设！
+完全是个外行的兴趣使然，个人学习用。
+
+## project
+
+项目暂时分为knowledge部分和code部分
+
+knowledge部分(./knowledge)存放一些neuroscience/cognitive psychology/computing的知识， 后续也会把notion上的论文和书籍的读后感迁移过来。
+
+code部分(./pinealand)设计为一个Python module，尝试写一些感兴趣的额话题，比如说视觉里的rods & cones之类的，自娱自乐。

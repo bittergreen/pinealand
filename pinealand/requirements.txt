@@ -1,0 +1,4 @@
+# dependencies with flexible version
+
+# dependencies with fixed version
+Pillow >= 7.0
