@@ -194,7 +194,7 @@ def _weighted_pagerank_traverse(src, dst, weight, vertices: {str: Vertex}, *args
     out_weight_sum = vertices[src].out_weight_sum
     change = 0.0
     if out_weight_sum != 0:
-        change = curr_rank[int(src)-1] / out_weight_sum
+        change = curr_rank[int(src)-1] * weight / out_weight_sum
     next_rank[int(dst)-1] += change
 
 
