@@ -1,26 +1,27 @@
-from pinealand.utils import graphlib
 import numpy as np
+
+from pinealand.graphlib import inputs, elements, algorithms
 
 data_path = '/home/wengqi/dataset/ml-100k/u.data'
 separator = '\t'
 weight_column_index = 3
 
-out_edges, in_edges = graphlib.read_data(data_path, weight_column_index, separator)
+out_edges, in_edges = inputs.read_data(data_path, weight_column_index, separator)
 
 """out_edges按起点排序，每条边数据第一个元素是起点；in_edges按终点排序，每条边数据第一个元素是终点(只用了out_edges)"""
-out_edges = graphlib.sort_edges(out_edges, weighted=True)
-in_edges = graphlib.sort_edges(in_edges, weighted=True)
+out_edges = inputs.sort_edge_list(out_edges, weighted=True)
+in_edges = inputs.sort_edge_list(in_edges, weighted=True)
 
 """
 这个数据集很搞，userid和movie id都是从0开始排的，需要做一下id-mapping
 943 users on 1682 items
 items(movie id)改到944开始，944-2625  lambda x: str(int(x)+943)
 """
-graph = graphlib.Graph(out_edges, weighted=True, dst_id_mapper=lambda x: str(int(x) + 943))
+graph = elements.Graph(True, out_edges, dst_id_mapper=lambda x: str(int(x) + 943))
 
-rank = graphlib.weighted_pagerank(graph, rounds=10)
+rank = algorithms.pagerank(graph, rounds=10)
 
-auth, hub = graphlib.hits(graph, rounds=10)
+auth, hub = algorithms.hits(graph, rounds=10)
 
 user_rank = rank[:943]
 movie_rank = rank[943:2625]
