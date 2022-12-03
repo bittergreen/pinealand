@@ -69,7 +69,7 @@ def _hits_traverse(edge: Edge, *args):
 
 
 def hits(graph: Graph, rounds=10):
-    """PageRank algorithm realized through edge traversing on adjacency list representation of the Graph"""
+    """HITS algorithm realized through edge traversing on adjacency list representation of the Graph"""
     """Notice the np.array indices starts from 0, but our vertex id starts from 1"""
     vn = graph.vn
     curr_auth = np.ones(vn) / vn

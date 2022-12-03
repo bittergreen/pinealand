@@ -7,10 +7,10 @@ import numpy as np
 # normally we have 2 functioning eyes
 # each is able to capture the world by projecting it onto the retina
 # meanwhile, it would constantly change the projection with rapid saccades
-class Eye(Organ):
+class Eye(SensoryOrgan):
 
     def __init__(self, central_size=(50, 50)):
-        self.__name__ = "Eye"
+        super(Eye, self).__init__()
         self.__image__ = None
         self.__central_size__ = central_size
         self.perception = None
