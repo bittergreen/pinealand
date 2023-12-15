@@ -1,7 +1,5 @@
 from pinealand.graphlib import elements
 
-import six
-
 # Todo: HAHA. Finish this shit, guys!
 
 

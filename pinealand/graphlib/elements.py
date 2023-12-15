@@ -1,9 +1,29 @@
 import abc
 
-from six import with_metaclass
+"""
+Reform the Graph & GraphElements structures according to the Pregel model
+@author: bittergreen
+@date: 2023.01.19
+"""
 
 
-class Vertex(with_metaclass(abc.ABCMeta), object):
+class GraphElement(object):
+
+    def __init__(self, value):
+        self._value = value
+
+    def get_value(self):
+        return self._value
+
+    def mutable_value(self, new_value):
+        self._value = new_value
+        return self._value
+
+    def compute(self):
+        pass
+
+
+class Vertex(object):
 
     def __init__(self, vid: int, out_degree=0, in_degree=0, out_weight_sum=0.0, in_weight_sum=0.0):
         self.vid = vid
@@ -39,7 +59,7 @@ class Vertex(with_metaclass(abc.ABCMeta), object):
         return self.__in_weight_sum
 
 
-class Edge(with_metaclass(abc.ABCMeta), object):
+class Edge(object):
 
     def __init__(self, src=None, dst=None, weight=None):
         self.src = src
@@ -56,7 +76,7 @@ class Edge(with_metaclass(abc.ABCMeta), object):
         self.weight = weight
 
 
-class Graph(with_metaclass(abc.ABCMeta), object):
+class Graph(object):
 
     """
     Graph object that contains Vertex & Edge objects(or their children)

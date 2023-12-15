@@ -1,9 +1,6 @@
-import abc
-
-from six import with_metaclass
 
 
-class SensoryBuffer(with_metaclass(abc.ABCMeta), object):
+class SensoryBuffer(object):
 
     def __init__(self):
         self.buffer = []
